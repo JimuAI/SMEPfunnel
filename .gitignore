@@ -1,0 +1,13 @@
+*.pyc
+__pycache__/
+
+.DS_Store
+
+logs/
+
+data/processed/
+
+models/lstm_regressor_pos/
+models/lstm_regressor_all/
+
+
