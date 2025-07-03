@@ -1,7 +1,10 @@
 # SMEP funnel
 
+
 **SMEP (Sequential Model Ensemble Pipeline) funnel** is a machine learning-based workflow for **antimicrobial peptide (AMP) screening**. It integrates an **XGBoost classifier**, an **XGBoost regressor**, and an **LSTM regressor** to sequentially filter and predict AMP activity.
 
+
+> **Note:** This repository provides a machine learning pipeline specifically designed for predicting antimicrobial peptide (AMP) activity against *Staphylococcus aureus* (S. aureus). It is tested and recommended to run with **Python 3.10**.
 
 
 ## Installation
@@ -9,8 +12,8 @@
 Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/your-repo/SMEP.git
-cd SMEP
+git clone https://github.com/JimuAI/SMEPfunnel.git
+cd SMEPfunnel
 pip install -r requirements.txt
 ```
 
