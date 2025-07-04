@@ -32,7 +32,7 @@ def lstm_regressor_predict(dataloader):
     device = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
     print(f"Using device: {device}")
     # 获取模型
-    model = torch.load("models/lstm_best_model.pth", weights_only=False).to(device)
+    model = torch.load("models/lstm_best_model.pth", weights_only=False, map_location=device).to(device)
     model.eval()
     # 批量预测
     all_preds = []
