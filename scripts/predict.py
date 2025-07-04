@@ -63,6 +63,9 @@ def predict_workflow(input_file, output_file):
     feature_X = feature_df.iloc[:, 1:]  # 特征数据
     y_pred = xgboost_classifier_predict(feature_X)
     pred_pos_feature_df = feature_df[y_pred == 1].reset_index(drop=True)
+    if pred_pos_feature_df.empty:
+        print("No positive predictions found.")
+        return
     
     # xgboost 回归预测
     feature_X = pred_pos_feature_df.iloc[:, 1:]
