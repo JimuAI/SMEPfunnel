@@ -1,5 +1,6 @@
 import sys
 from pathlib import Path
+import argparse
 
 # 将项目根目录添加到Python路径
 project_root = Path(__file__).parent.parent
@@ -44,7 +45,7 @@ def lstm_regressor_predict(dataloader):
     return torch.cat(all_preds, dim=0).numpy()
 
 
-def predict_workflow(input_file):
+def predict_workflow(input_file, output_file):
     # 读取数据
     suffix = input_file.split(".")[-1]
     if suffix == "txt":
@@ -79,8 +80,14 @@ def predict_workflow(input_file):
         "xgboost_pred": xgboost_pred,  # XGBoost 预测值
         "lstm_pred": lstm_pred  # LSTM 预测值
     })
-    results_df.to_csv("data/predict/prediction_results.csv", index=False)  # 不保存索引
+    results_df.to_csv(output_file, index=False)  # 不保存索引
     
 if __name__ == '__main__':
-    predict_workflow("data/predict/sequences.txt")
+    parser = argparse.ArgumentParser(description="Predict AMP activity against S. aureus using XGBoost and LSTM models.")
     
+    parser.add_argument("input_file", help="Path to input TXT file")
+    parser.add_argument("output_file", help="Path to output CSV file")
+
+    args = parser.parse_args()
+
+    predict_workflow(args.input_file, args.output_file)

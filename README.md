@@ -7,6 +7,7 @@
 > **Note:** This repository provides a machine learning pipeline specifically designed for predicting antimicrobial peptide (AMP) activity against *Staphylococcus aureus* (S. aureus). It is tested and recommended to run with **Python 3.10**.
 
 
+
 ## Installation
 
 Clone the repository and install dependencies:
@@ -24,7 +25,7 @@ pip install -r requirements.txt
 Prepare input peptide sequences in a text file and run the pipeline for predicting:
 
 ```bash
-python scripts/predict.py data/predict/sequences.txt
+python scripts/predict.py data/predict/sequences.txt data/predict/prediction_results.csv
 ```
 
 
